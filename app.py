@@ -48,8 +48,17 @@ st.title("📈 Stock Price Predictor")
 st.markdown("### AI-Powered Stock Market Forecasting with Machine Learning")
 st.markdown("---")
 
-# Sidebar
-st.sidebar.header("⚙️ Configuration")
+# Model parameters
+st.sidebar.markdown("---")
+st.sidebar.markdown("### 🤖 ML Model Settings")
+changepoint_prior_scale = st.sidebar.slider(
+    "Model flexibility (higher = more flexible)",
+    0.001, 0.5, 0.05
+)
+seasonality_mode = st.sidebar.selectbox(
+    "Seasonality mode",
+    ["multiplicative", "additive"]
+)
 
 # Stock selection
 popular_stocks = {
@@ -220,7 +229,7 @@ if data is not None and not data.empty:
             # Train model
             model = train_prophet_model(
                 prophet_df,
-                changepoint_scale,
+                changepoint_prior_scale,
                 seasonality_mode
             )
             
