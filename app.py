@@ -8,6 +8,8 @@ from prophet.plot import plot_plotly
 from plotly import graph_objs as go
 import plotly.express as px
 from sklearn.metrics import mean_absolute_error, mean_squared_error
+import plotly.io as pio
+pio.templates.default = "plotly_dark"
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -152,7 +154,7 @@ def calculate_metrics(actual, predicted):
     return mae, rmse, mape
 
 # Display stock info
-col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns([1, 1, 1]) 
 
 with col1:
     st.metric("Selected Stock", selected_stock_name)
@@ -191,12 +193,12 @@ if data is not None and not data.empty:
     ))
     fig_history.update_layout(
         template='plotly_dark',
-        height=400,
+        height=500,
         hovermode='x unified',
         xaxis_title="Date",
         yaxis_title="Price (USD)",
-        plot_bgcolor='rgba(0,0,0,0)',
-        paper_bgcolor='rgba(0,0,0,0)',
+        showlegend=True,
+        margin=dict(l=50, r=50, t=50, b=50)
     )
     st.plotly_chart(fig_history, width=True)
     
@@ -214,8 +216,8 @@ if data is not None and not data.empty:
         height=300,
         xaxis_title="Date",
         yaxis_title="Volume",
-        plot_bgcolor='rgba(0,0,0,0)',
-        paper_bgcolor='rgba(0,0,0,0)',
+        showlegend=True,
+        margin=dict(l=50, r=50, t=50, b=50)
     )
     st.plotly_chart(fig_volume, width=True)
     
@@ -269,8 +271,8 @@ if data is not None and not data.empty:
             height=500,
             xaxis_title="Date",
             yaxis_title="Price (USD)",
-            plot_bgcolor='rgba(0,0,0,0)',
-            paper_bgcolor='rgba(0,0,0,0)',
+            showlegend=True,
+            margin=dict(l=50, r=50, t=50, b=50)
         )
         st.plotly_chart(fig_forecast, width=True)
         
