@@ -107,7 +107,8 @@ changepoint_prior_scale = st.sidebar.slider(
 )
 seasonality_mode = st.sidebar.selectbox(
     "Seasonality mode",
-    ["multiplicative", "additive"]
+    ["multiplicative", "additive"],
+    key="seasonality_select"
 )
 
 # Start prediction button
