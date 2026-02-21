@@ -183,7 +183,7 @@ if data is not None and not data.empty:
         hovertemplate='%{y:$.2f}<extra></extra>'
     ))
     fig_history.update_xaxes(
-    range=[data['Close'].min() * 0.95, data['Close'].max() * 1.05],  
+    range=[data['Date'].min(), data['Date'].max()],  
     rangeslider_visible=False,
     rangeselector=dict(
         buttons=list([
@@ -192,6 +192,9 @@ if data is not None and not data.empty:
             dict(count=1, label="1y", step="year", stepmode="backward")
         ])
     )
+)
+    fig_history.update_yaxes(
+    range=[data['Close'].min() * 0.95, data['Close'].max() * 1.05]
 )
     fig_history.update_layout(
         template='plotly_dark',
