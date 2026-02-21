@@ -59,7 +59,8 @@ changepoint_prior_scale = st.sidebar.slider(
 )
 seasonality_mode = st.sidebar.selectbox(
     "Seasonality mode",
-    ["multiplicative", "additive"]
+    ["multiplicative", "additive"],
+    key="seasonality_select"
 )
 
 # Stock selection
@@ -99,19 +100,7 @@ end_date = datetime.now()
 # Prediction period
 prediction_days = st.sidebar.slider("Prediction period (days)", 7, 90, 30, key="days_slider")
 
-# Model parameters
 st.sidebar.markdown("---")
-st.sidebar.markdown("### 🤖 ML Model Settings")
-changepoint_prior_scale = st.sidebar.slider(
-    "Model flexibility (higher = more flexible)",
-    0.001, 0.5, 0.05,
-    key="changepoint_slider"
-)
-seasonality_mode = st.sidebar.selectbox(
-    "Seasonality mode",
-    ["multiplicative", "additive"],
-    key="seasonality_select"
-)
 
 # Start prediction button
 predict_button = st.sidebar.button("🚀 Generate Prediction", type="primary")
