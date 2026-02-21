@@ -112,6 +112,8 @@ def load_data(ticker, start, end):
     try:
         data = yf.download(ticker, start=start, end=end, progress=False)
         data.reset_index(inplace=True)
+        data['Date'] = pd.to_datetime(data['Date']).dt.date
+        data['Date'] = pd.to_datetime(data['Date'])  
         return data
     except Exception as e:
         st.error(f"Error loading data: {e}")
