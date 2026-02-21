@@ -163,21 +163,16 @@ with st.spinner(f"Loading data for {selected_stock}..."):
 
 if data is not None and not data.empty:
     # Display current price
-    current_price = data['Close'].iloc[-1]
-    prev_price = data['Close'].iloc[-2]
+    current_price = float(data['Close'].iloc[-1])
+    prev_price = float(data['Close'].iloc[-2])
     price_change = current_price - prev_price
     price_change_pct = (price_change / prev_price) * 100
     
     with col2:
         st.metric(
-            current_price = data['Close'].iloc[-1],
-            prev_price = data['Close'].iloc[-2],
-
-            current_price = float(current_price),
-            prev_price = float(prev_price),
-
-            price_change = current_price - prev_price,
-            price_change_pct = (price_change / prev_price) * 100
+            "Current Price",
+            f"${current_price:.2f}",
+            f"{price_change_pct:+.2f}%"
         )
     
     with col3:
