@@ -199,8 +199,6 @@ if data is not None and not data.empty:
         hovermode='x unified',
         xaxis_title="Date",
         yaxis_title="Price (USD)",
-        showlegend=True,
-        hovermode='x'
     )
     st.plotly_chart(fig_history, width='stretch', config={'displayModeBar': False})
     
