@@ -198,7 +198,7 @@ if data is not None and not data.empty:
         plot_bgcolor='rgba(0,0,0,0)',
         paper_bgcolor='rgba(0,0,0,0)',
     )
-    st.plotly_chart(fig_history, use_container_width=True)
+    st.plotly_chart(fig_history, width=True)
     
     # Volume chart
     st.markdown("### 📊 Trading Volume")
@@ -217,7 +217,7 @@ if data is not None and not data.empty:
         plot_bgcolor='rgba(0,0,0,0)',
         paper_bgcolor='rgba(0,0,0,0)',
     )
-    st.plotly_chart(fig_volume, use_container_width=True)
+    st.plotly_chart(fig_volume, width=True)
     
     # Prediction section
     if predict_button:
@@ -272,7 +272,7 @@ if data is not None and not data.empty:
             plot_bgcolor='rgba(0,0,0,0)',
             paper_bgcolor='rgba(0,0,0,0)',
         )
-        st.plotly_chart(fig_forecast, use_container_width=True)
+        st.plotly_chart(fig_forecast, width=True)
         
         # Future predictions table
         st.markdown("### 📅 Predicted Prices")
@@ -287,7 +287,7 @@ if data is not None and not data.empty:
         
         st.dataframe(
             future_predictions.head(30),
-            use_container_width=True,
+            width=True,
             hide_index=True
         )
         
@@ -309,9 +309,9 @@ if data is not None and not data.empty:
         # Insights
         st.markdown("### 💡 Key Insights")
         
-        last_actual = data['Close'].iloc[-1]
-        last_predicted = forecast['yhat'].iloc[-1]
-        future_predicted = forecast['yhat'].iloc[-1 - prediction_days]
+        last_actual = float(data['Close'].iloc[-1])
+        last_predicted = float(forecast['yhat'].iloc[-1])
+        future_predicted = float(forecast['yhat'].iloc[-1 - prediction_days])
         
         predicted_change = future_predicted - last_actual
         predicted_change_pct = (predicted_change / last_actual) * 100
