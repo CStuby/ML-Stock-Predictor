@@ -90,19 +90,20 @@ if custom_stock:
     selected_stock_name = custom_stock.upper()
 
 # Date range
-years_back = st.sidebar.slider("Historical data (years)", 1, 10, 3)
+years_back = st.sidebar.slider("Historical data (years)", 1, 10, 3, key="years_slider")
 start_date = datetime.now() - timedelta(days=years_back*365)
 end_date = datetime.now()
 
 # Prediction period
-prediction_days = st.sidebar.slider("Prediction period (days)", 7, 90, 30)
+prediction_days = st.sidebar.slider("Prediction period (days)", 7, 90, 30, key="days_slider")
 
 # Model parameters
 st.sidebar.markdown("---")
 st.sidebar.markdown("### 🤖 ML Model Settings")
 changepoint_prior_scale = st.sidebar.slider(
     "Model flexibility (higher = more flexible)",
-    0.001, 0.5, 0.05
+    0.001, 0.5, 0.05,
+    key="changepoint_slider"
 )
 seasonality_mode = st.sidebar.selectbox(
     "Seasonality mode",
