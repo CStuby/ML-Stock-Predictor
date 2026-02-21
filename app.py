@@ -183,7 +183,9 @@ if data is not None and not data.empty:
         fillcolor='rgba(0, 217, 255, 0.1)'
     ))
     fig_history.update_xaxes(
-    rangeslider_visible=True,  
+    type='linear',
+    autorange=True,
+    rangeslider_visible=False,  
     rangeselector=dict(
         buttons=list([
             dict(count=1, label="1m", step="month", stepmode="backward"),
