@@ -184,8 +184,6 @@ if data is not None and not data.empty:
         hovertemplate='%{y:$.2f}<extra></extra>'
     ))
     fig_history.update_xaxes(
-    autorange=True,
-    rangemode='tozero',
     range=[data['Date'].min(), data['Date'].max()],  
     rangeslider_visible=False,
     rangeselector=dict(
@@ -216,8 +214,7 @@ if data is not None and not data.empty:
         x=data['Date'],
         y=data['Volume'],
         name='Volume',
-        marker_color='#6366f1',
-        opacity=0.8
+        marker_color='#6366f1'
     ))
     fig_volume.update_xaxes(
     range=[data['Date'].min(), data['Date'].max()] 
