@@ -180,11 +180,12 @@ if data is not None and not data.empty:
         y=data['Close'],
         mode='lines',
         name='Close Price',
-        line=dict(color='#00d9ff', width=2),
-        fill='tozeroy',
-        fillcolor='rgba(0, 217, 255, 0.1)'
+        line=dict(color='#00d9ff', width=3),
+        hovertemplate='%{y:$.2f}<extra></extra>'
     ))
     fig_history.update_xaxes(
+    autorange=True,
+    rangemode='tozero',
     range=[data['Date'].min(), data['Date'].max()],  
     rangeslider_visible=False,
     rangeselector=dict(
@@ -215,7 +216,8 @@ if data is not None and not data.empty:
         x=data['Date'],
         y=data['Volume'],
         name='Volume',
-        marker_color='#6366f1'
+        marker_color='#6366f1',
+        opacity=0.8
     ))
     fig_volume.update_xaxes(
     range=[data['Date'].min(), data['Date'].max()] 
