@@ -200,7 +200,7 @@ if data is not None and not data.empty:
         showlegend=True,
         margin=dict(l=50, r=50, t=50, b=50)
     )
-    st.plotly_chart(fig_history, width=True)
+    st.plotly_chart(fig_history, use_container_width=True, config={'displayModeBar': False})
     
     # Volume chart
     st.markdown("### 📊 Trading Volume")
@@ -219,7 +219,7 @@ if data is not None and not data.empty:
         showlegend=True,
         margin=dict(l=50, r=50, t=50, b=50)
     )
-    st.plotly_chart(fig_volume, width=True)
+    st.plotly_chart(fig_volume, use_container_width=True, config={'displayModeBar': False})
     
     # Prediction section
     if predict_button:
@@ -274,7 +274,7 @@ if data is not None and not data.empty:
             showlegend=True,
             margin=dict(l=50, r=50, t=50, b=50)
         )
-        st.plotly_chart(fig_forecast, width=True)
+        st.plotly_chart(fig_forecast, use_container_width=True, config={'displayModeBar': False})
         
         # Future predictions table
         st.markdown("### 📅 Predicted Prices")
