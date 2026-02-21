@@ -170,9 +170,14 @@ if data is not None and not data.empty:
     
     with col2:
         st.metric(
-            "Current Price",
-            f"${current_price:.2f}",
-            f"{price_change_pct:+.2f}%"
+            current_price = data['Close'].iloc[-1],
+            prev_price = data['Close'].iloc[-2],
+
+            current_price = float(current_price),
+            prev_price = float(prev_price),
+
+            price_change = current_price - prev_price,
+            price_change_pct = (price_change / prev_price) * 100
         )
     
     with col3:
