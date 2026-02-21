@@ -183,7 +183,7 @@ if data is not None and not data.empty:
         hovertemplate='%{y:$.2f}<extra></extra>'
     ))
     fig_history.update_xaxes(
-    range=[data['Date'].min(), data['Date'].max()],  
+    range=[data['Close'].min() * 0.95, data['Close'].max() * 1.05],  
     rangeslider_visible=False,
     rangeselector=dict(
         buttons=list([
