@@ -217,6 +217,9 @@ if data is not None and not data.empty:
         name='Volume',
         marker_color='#6366f1'
     ))
+    fig_volume.update_xaxes(
+    range=[data['Date'].min(), data['Date'].max()] 
+    )
     fig_volume.update_layout(
         template='plotly_dark',
         height=300,
