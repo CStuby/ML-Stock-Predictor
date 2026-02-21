@@ -51,7 +51,6 @@ st.markdown("### AI-Powered Stock Market Forecasting with Machine Learning")
 st.markdown("---")
 
 # Model parameters
-st.sidebar.markdown("---")
 st.sidebar.markdown("### 🤖 ML Model Settings")
 changepoint_prior_scale = st.sidebar.slider(
     "Model flexibility (higher = more flexible)",
@@ -190,8 +189,7 @@ if data is not None and not data.empty:
         buttons=list([
             dict(count=1, label="1m", step="month", stepmode="backward"),
             dict(count=6, label="6m", step="month", stepmode="backward"),
-            dict(count=1, label="1y", step="year", stepmode="backward"),
-            dict(step="all", label="All")
+            dict(count=1, label="1y", step="year", stepmode="backward")
         ])
     )
 )
