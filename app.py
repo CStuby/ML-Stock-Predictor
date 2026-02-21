@@ -177,7 +177,7 @@ if data is not None and not data.empty:
     fig_history.add_trace(go.Scatter(
         x=data['Date'],
         y=data['Close'],
-        mode='lines+markers',
+        mode='lines',
         name='Close Price',
         line=dict(color='#00d9ff', width=3),
         hovertemplate='%{y:$.2f}<extra></extra>'
@@ -192,9 +192,6 @@ if data is not None and not data.empty:
             dict(count=1, label="1y", step="year", stepmode="backward")
         ])
     )
-)
-    fig_history.update_yaxes(
-    range=[data['Close'].min() * 0.95, data['Close'].max() * 1.05]
 )
     fig_history.update_layout(
         template='plotly_dark',
