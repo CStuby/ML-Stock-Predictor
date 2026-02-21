@@ -200,8 +200,7 @@ if data is not None and not data.empty:
         xaxis_title="Date",
         yaxis_title="Price (USD)",
         showlegend=True,
-        xaxis=dict(rangeslider=dict(visible=False)),
-        yaxis=dict(autorange=True, fixedrange=False)
+        hovermode='x'
     )
     st.plotly_chart(fig_history, width='stretch', config={'displayModeBar': False})
     
