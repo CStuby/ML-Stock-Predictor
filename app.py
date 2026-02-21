@@ -177,7 +177,7 @@ if data is not None and not data.empty:
     fig_history.add_trace(go.Scatter(
         x=data['Date'],
         y=data['Close'],
-        mode='lines',
+        mode='lines+markers',
         name='Close Price',
         line=dict(color='#00d9ff', width=3),
         hovertemplate='%{y:$.2f}<extra></extra>'
