@@ -178,18 +178,19 @@ if data is not None and not data.empty:
         y=data['Close'],
         mode='lines',
         name='Close Price',
-        line=dict(color='#00d9ff', width=2)
+        line=dict(color='#00d9ff', width=2),
+        fill='tozeroy',
+        fillcolor='rgba(0, 217, 255, 0.1)'
     ))
-    fig_history.update_xaxes(
-        tickformat='%b %d, %Y',  
-        dtick='M1'  
-    )
     fig_history.update_layout(
         template='plotly_dark',
         height=500,
         hovermode='x unified',
         xaxis_title="Date",
         yaxis_title="Price (USD)",
+        showlegend=True,
+        xaxis=dict(rangeslider=dict(visible=False)),
+        yaxis=dict(autorange=True, fixedrange=False)
     )
     st.plotly_chart(fig_history, width='stretch', config={'displayModeBar': False})
     
